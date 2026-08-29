@@ -2,23 +2,20 @@ import { useEffect, useState } from "react";
 
 export function useTimer(initialSeconds) {
     const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
+    const [isRunning, setIsRunning] = useState(false);
+    const isActive = isRunning && secondsLeft > 0;
 
     useEffect(() => {
-        if (!isRunning) {
-            return;
-        }
-
-        if (secondsLeft <= 0) {
-            setIsRunning(false);
+        if (!isActive) {
             return;
         }
 
         const interval = setInterval (() => {
-            setSecondsLeft((current) => current - 1);
+            setSecondsLeft((current) => Math.max(current - 1, 0));
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [isRunning, secondsLeft]);
+    }, [isActive]);
 
     const start = () => {
         if (secondsLeft > 0) {
@@ -42,7 +39,7 @@ export function useTimer(initialSeconds) {
     
     return {
         secondsLeft,
-        isRunning,
+        isRunning: isActive,
         start,
         pause,
         reset,

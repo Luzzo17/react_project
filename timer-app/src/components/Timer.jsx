@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useTimer } from "./hooks/useTimer";
-import TimerDisplay from "./components/TimerDisplay";
-import TimerControls from "./components/TimerControls";
+import { useTimer } from "../hooks/useTimer";
+import TimerDisplay from "./TimerDisplay";
+import TimerControls from "./TimerControls";
+import { FaClock } from "react-icons/fa6";
 
 export default function Timer() {
     const [minutes, setMinutes] = useState(10);
@@ -11,12 +12,12 @@ export default function Timer() {
 
     useEffect(() => {
         if (secondsLeft === 0 && !isRunning) {
-            const audio = new Audio("./public/end-timer.mp3");
+            const audio = new Audio("/end-timer.mp3");
             audio.play().catch(() => {
                 console.log("Impossibile riprodurre l'audio. Controlla il percorso del file.");
             });
         }
-}, [secondsLeft]);
+}, [secondsLeft, isRunning]);
 
 const handleSetDuration = () => {
     const total = minutes * 60 + seconds;
@@ -73,7 +74,7 @@ return (
         </div>
 
         <button className="set-button" onClick={handleSetDuration}>
-            Imposta Durata
+            <FaClock /> Imposta Durata
         </button>
     </div>
     </div>

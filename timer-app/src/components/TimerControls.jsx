@@ -14,13 +14,13 @@ export default function TimerControls({
                 onClick={onStart}
                 disabled={secondsLeft === 0}
                 >
-                    <FaPlay /> Avvia
+                 <FaPlay /> Avvia
                 </button>
             ) : (
                 <button className= "primary-button"
                 onClick={onPause}
                 >
-                    <FaPause /> Pausa
+                <FaPause/> Pausa
                 </button>
             )
         
@@ -28,7 +28,7 @@ export default function TimerControls({
                 <button className="secondary-button"
                 onClick={onReset}
                 >
-                    <FaArrowsRotate /> Reset
+                <FaArrowsRotate /> Reset
                 </button>
         </div>
     )
