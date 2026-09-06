@@ -9,6 +9,7 @@ function formatTime(totalSeconds) {
 export default function TimerDisplay ({
     secondsLeft,
     totalSeconds,
+    isPaused,
 }) {
     const progress =
     totalSeconds >0
@@ -17,7 +18,7 @@ export default function TimerDisplay ({
 
     return (
         <div className="timer-display">
-            <div className="progress-circle"
+            <div className={`progress-circle ${isPaused ? "paused" : ""}`}
             style={{
                 "--progress": `${progress * 3.6}deg`,
             }}
@@ -25,12 +26,11 @@ export default function TimerDisplay ({
             <div className="timer-content">
                 <span className="time">{formatTime(secondsLeft)}</span>
 
-                <span className="timer-label">
-                    {secondsLeft === 0 ? "Grazie per esserti dedicato questo momento" : "Non c'è fretta"}
-                </span>
+
             </div>
             </div>
             </div>
+            
 
     );
 }

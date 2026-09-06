@@ -11,6 +11,7 @@ export default function TimerControls({
         <div className="timer-controls">
             {!isRunning ? (
                 <button className="primary-button"
+                id="start"
                 onClick={onStart}
                 disabled={secondsLeft === 0}
                 >
@@ -18,6 +19,7 @@ export default function TimerControls({
                 </button>
             ) : (
                 <button className= "primary-button"
+                id="pause"
                 onClick={onPause}
                 >
                 <FaPause/> Pausa
@@ -25,7 +27,8 @@ export default function TimerControls({
             )
         
         }
-                <button className="secondary-button"
+                <button className="primary-button"
+                id="reset"
                 onClick={onReset}
                 >
                 <FaArrowsRotate /> Reset

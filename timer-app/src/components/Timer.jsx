@@ -8,6 +8,7 @@ export default function Timer() {
     const [minutes, setMinutes] = useState(10);
     const [seconds, setSeconds] = useState(0);
     const [totalSeconds, setTotalSeconds] = useState( 10 * 60);
+    const [hasStarted, setHasStarted] = useState(false);
     const { secondsLeft, isRunning, start, pause, reset, setTime } = useTimer(totalSeconds);
 
     useEffect(() => {
@@ -19,6 +20,18 @@ export default function Timer() {
         }
 }, [secondsLeft, isRunning]);
 
+const isPaused = hasStarted && !isRunning && secondsLeft > 0;
+
+const handleStart = () => {
+    setHasStarted(true);
+    start();
+};
+
+const handleReset = () => {
+    setHasStarted(false);
+    reset();
+};
+
 const handleSetDuration = () => {
     const total = minutes * 60 + seconds;
     if (total <= 0) {
@@ -27,6 +40,7 @@ const handleSetDuration = () => {
 
     setTotalSeconds(total);
     setTime(total);
+    setHasStarted(false);
 };
 
 return (
@@ -36,21 +50,22 @@ return (
     <TimerDisplay 
     secondsLeft={secondsLeft}
     totalSeconds={totalSeconds}
+    isPaused={isPaused}
     />
 
     <TimerControls
     isRunning={isRunning}
     secondsLeft={secondsLeft}
-    onStart={start}
+    onStart={handleStart}
     onPause={pause}
-    onReset={reset}
+    onReset={handleReset}
     />
 
     <div className="settings">
         <h2>Imposta la durata del timer</h2>
         <div className="input-settings">
             <div>
-                <label htmlFor="minutes">Minuti</label>
+                <label htmlFor="minutes">Minuti: </label>
                 <input
                 id="minutes"
                 type="number"
@@ -61,7 +76,7 @@ return (
                 />
             </div>
             <div>
-                <label htmlFor="seconds">Secondi</label>
+                <label htmlFor="seconds">Secondi: </label>
                 <input
                 id="seconds"
                 type="number"
