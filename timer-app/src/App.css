@@ -57,11 +57,26 @@
   );
 }
 
-.progress-circle.paused {
+.progress-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
   background: conic-gradient(
     rgba(255, 255, 255, 0.4) var(--progress),
     #ffcc00 0deg
   );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.progress-circle.paused::before {
+  opacity: 1;
+}
+
+.progress-circle > * {
+  position: relative;
+  z-index: 1;
 }
 
 .timer-controls {
@@ -86,12 +101,24 @@
   background-color: #00BB00
 }
 
+#start:hover{
+  background-color: #00DD00
+}
+
 #pause{
   background-color: #ffcc00
 }
 
+#pause:hover{
+  background-color: #ffdd00
+}
+
 #reset{
   background-color: #ff0000
+}
+
+#reset:hover{
+  background-color: #dd0000
 }
 
 .settings {
@@ -135,7 +162,8 @@ input{
 
 
 .set-button {
-  margin-top: 10px;
+   background-color: rgba(255, 255, 255, 0.75);
+   margin-top: 10px;
    color: black;
    font-size: 1.2rem;
    padding: 5px 10px;
@@ -143,4 +171,8 @@ input{
    display: flex;
    gap: 10px;
    justify-content: center;
+}
+
+.set-button:hover {
+   background-color: rgba(200, 200, 200, 0.75);
 }

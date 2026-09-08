@@ -72,8 +72,12 @@ return (
                 min="0"
                 max="120"
                 value={minutes}
-                onChange={(event) => setMinutes(Number(event.target.value))}
-                />
+                onChange={(event) => {
+                    const value = Number(event.target.value);
+                    if (value > 120) setMinutes(120);
+                    else if (value < 0) setMinutes(0);
+                    else setMinutes(value);
+                }}/>
             </div>
             <div>
                 <label htmlFor="seconds">Secondi: </label>
@@ -83,8 +87,12 @@ return (
                 min="0"
                 max="59"
                 value={seconds}
-                onChange={(event) => setSeconds(Number(event.target.value))}
-                />
+                onChange={(event) => {
+                    const value = Number(event.target.value);
+                    if (value > 59) setSeconds(59);
+                    else if (value < 0) setSeconds(0);
+                    else setSeconds(value);
+                }}/>
             </div>
         </div>
 
