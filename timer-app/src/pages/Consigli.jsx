@@ -2,6 +2,7 @@ export default function Consigli() {
   return (<section>
     <h2>Consigli per la meditazione</h2>
     <br/>
+    <br/>
     <div>
         <h3>Trova un posto tranquillo</h3>
         <p>
@@ -9,7 +10,7 @@ export default function Consigli() {
             Non serve un luogo particolare: anche una stanza di casa può andare bene.
         </p>
     </div>
-
+<br/>
     <div>
         <h3>Concentrati sulla respirazione</h3>
         <p>
@@ -18,7 +19,7 @@ export default function Consigli() {
             sul respiro.
         </p>
     </div>
-
+<br/>
     <div>
         <h3>Riduci le distrazioni</h3>
         <p>
@@ -26,7 +27,7 @@ export default function Consigli() {
             che potrebbe interrompere la tua sessione.
         </p>
     </div>
-
+<br/>
     <div>
         <h3>Inizia con pochi minuti</h3>
         <p>
@@ -34,7 +35,7 @@ export default function Consigli() {
             5 minuti e aumentare gradualmente la durata quando ti senti più a tuo agio.
         </p>
     </div>
-
+<br/>
     <div>
         <h3>Non preoccuparti dei pensieri</h3>
         <p>
@@ -43,7 +44,7 @@ export default function Consigli() {
             l'attenzione al respiro.
         </p>
     </div>
-
+<br/>
     <div>
         <h3>Sii costante</h3>
         <p>

@@ -33,6 +33,7 @@ body {
 
 section{
   width: 70%;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
