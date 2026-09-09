@@ -40,11 +40,6 @@
         padding: 25px 50px;
     }
 
-    .timer-container{
-        width: 100%;
-        background-color: red;
-    }
-
     footer{
         flex-direction: column;
         gap: 10px;

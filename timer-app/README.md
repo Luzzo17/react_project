@@ -1,16 +1,45 @@
-# React + Vite
+# Mindful Timer - Progetto REACT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: disponibile dopo la pubblicazione su GitHub Pages
 
-Currently, two official plugins are available:
+# Descrizione
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Mindful Timer è un'applicazione web che aiuta l'utente a ritagliarsi un momento di calma e meditazione.
 
-## React Compiler
+L'applicazione permette di impostare la durata di una sessione, avviare, mettere in pausa e resettare il timer. Durante la meditazione vengono mostrate frasi ispirazionali che cambiano automaticamente e un sottofondo sonoro accompagna la sessione.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Il sito include inoltre una pagina introduttiva con immagini dedicate alla meditazione e una pagina con alcuni consigli utili per iniziare a meditare.
 
-## Expanding the ESLint configuration
+# Architettura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Il progetto utilizza una struttura basata su componenti React:
+
+Components: navbar, footer, timer, controlli del timer, visualizzazione del timer e carousel di immagini.
+
+Pages: Home e Consigli.
+
+Hooks: useTimer gestisce lo stato e il funzionamento del timer.
+
+Services: meditationApi.js utilizza Axios per leggere frasi e immagini dai file JSON locali.
+
+# Tecnologie utilizzate:
+
+HTML
+
+CSS
+
+JavaScript
+
+React
+
+Vite
+
+React Router
+
+Axios
+
+React Hooks
+
+React Icons
+
+GitHub Pages
