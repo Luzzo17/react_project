@@ -188,3 +188,26 @@ input{
 .fade-in {
   opacity: 1;
 }
+
+@media only screen and (max-width: 767px) {
+
+    .timer-container{
+        margin-top: 15vh;
+        width: 100%;
+      .timer-controls{
+        flex-direction: column;
+        width: 80%;
+        .primary-button{
+          width:100%;
+        }
+
+      }
+      .input-settings{
+        flex-direction: column;
+        width: 80%;
+      }
+      .set-button{
+          width:80%;
+        }
+     }
+  }

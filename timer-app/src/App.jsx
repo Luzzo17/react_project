@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Consigli from "./pages/Consigli";
 import "./App.css";
 import Images from "./components/Images";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/consigli" element={<Consigli />} />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
