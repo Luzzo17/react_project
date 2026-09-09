@@ -14,3 +14,61 @@ body {
   align-items: flex-start;
   padding-top: 50px;
 }
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+section{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(183, 216, 175, 0.4);
+  padding: 20px;
+  border-radius: 25px;
+  border: 2px solid rgba(119, 204, 247, 0.5);
+  box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+nav{
+  width: 100%;
+  height: 15vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(212, 231, 207, 0.6);
+  box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  h1{
+    
+    font-family: 'Zen Dots', cursive;
+    font-size: 3rem;
+  }
+  .navbar-link{
+    font-family: 'Zen Dots', cursive;
+    font-size: 1.2rem;
+    color: #8F9BE7;
+    text-decoration: none;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+      color: #5d6ac0;
+    }
+    &.active{
+      color: #5d6ac0;
+      border-bottom: 3px solid #5d6ac0;
+    }
+  }
+}

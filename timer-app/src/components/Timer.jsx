@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTimer } from "../hooks/useTimer";
 import TimerDisplay from "./TimerDisplay";
 import TimerControls from "./TimerControls";
 import { FaClock } from "react-icons/fa6";
+import { getQuotes } from "../services/meditationApi";
+
 
 export default function Timer() {
     const [minutes, setMinutes] = useState(10);
@@ -10,6 +12,16 @@ export default function Timer() {
     const [totalSeconds, setTotalSeconds] = useState( 10 * 60);
     const [hasStarted, setHasStarted] = useState(false);
     const { secondsLeft, isRunning, start, pause, reset, setTime } = useTimer(totalSeconds);
+    const [quote, setQuote] = useState("");
+    const [fade, setFade] = useState(false);
+    
+    
+    useEffect(() => {
+    getQuotes().then((quotes) => {
+        const random = quotes[Math.floor(Math.random() * quotes.length)];
+        setQuote(random);
+    });
+}, []);
 
     useEffect(() => {
         if (secondsLeft === 0 && !isRunning) {
@@ -18,6 +30,47 @@ export default function Timer() {
                 console.log("Impossibile riprodurre l'audio. Controlla il percorso del file.");
             });
         }
+}, [secondsLeft, isRunning]);
+
+const backgroundAudio = useRef(new Audio("/running-timer.mp3"));
+
+useEffect(() => {
+    backgroundAudio.current.loop = true;
+
+    if (isRunning) {
+        backgroundAudio.current.play().catch(() => {
+            console.log("Impossibile riprodurre l'audio. Controlla il percorso del file.");
+        });
+    } else {
+        backgroundAudio.current.pause();
+        backgroundAudio.current.currentTime = 0;
+    }
+}, [isRunning]);
+
+
+
+useEffect(() => {
+    if (!isRunning) return;
+    if (secondsLeft === 0) return;
+
+    if (secondsLeft % 30 === 0) {
+        const fadeTimeout = setTimeout(() => {
+            setFade(true);
+        }, 0);
+
+        const quoteTimeout = setTimeout(() => {
+            getQuotes().then((quotes) => {
+                const random = quotes[Math.floor(Math.random() * quotes.length)];
+                setQuote(random);
+                setFade(false); 
+            });
+        }, 800);
+
+        return () => {
+            clearTimeout(fadeTimeout);
+            clearTimeout(quoteTimeout);
+        };
+    }
 }, [secondsLeft, isRunning]);
 
 const isPaused = hasStarted && !isRunning && secondsLeft > 0;
@@ -45,7 +98,7 @@ const handleSetDuration = () => {
 
 return (
     <div className="timer-container">
-        <h1>Prenditi qualche minuto per te!</h1>
+        <h1 className={fade ? "fade-out" : "fade-in"}>{quote}</h1>
 
     <TimerDisplay 
     secondsLeft={secondsLeft}
