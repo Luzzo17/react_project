@@ -7,6 +7,7 @@ import { getQuotes } from "../services/meditationApi";
 
 
 export default function Timer() {
+    const baseUrl = import.meta.env.BASE_URL;
     const [minutes, setMinutes] = useState(10);
     const [seconds, setSeconds] = useState(0);
     const [totalSeconds, setTotalSeconds] = useState( 10 * 60);
@@ -25,14 +26,14 @@ export default function Timer() {
 
     useEffect(() => {
         if (secondsLeft === 0 && !isRunning) {
-            const audio = new Audio("/end-timer.mp3");
+            const audio = new Audio(`${baseUrl}end-timer.mp3`);
             audio.play().catch(() => {
                 console.log("Impossibile riprodurre l'audio. Controlla il percorso del file.");
             });
         }
-}, [secondsLeft, isRunning]);
+}, [secondsLeft, isRunning, baseUrl]);
 
-const backgroundAudio = useRef(new Audio("/running-timer.mp3"));
+const backgroundAudio = useRef(new Audio(`${baseUrl}running-timer.mp3`));
 
 useEffect(() => {
     backgroundAudio.current.loop = true;

@@ -4,6 +4,7 @@ import { getImages } from "../services/meditationApi";
 export default function Images() {
     const [images, setImages] = useState([]);
     const [index, setIndex] = useState(0);
+    const baseUrl = import.meta.env.BASE_URL;
 
     useEffect(() => {
         getImages().then((data) => {
@@ -27,7 +28,7 @@ export default function Images() {
             {images.map((image, imageIndex) => (
                 <img
                     key={image}
-                    src={`/images/carousel/${image}`}
+                    src={`${baseUrl}images/carousel/${image}`}
                     alt={`Meditazione ${imageIndex + 1}`}
                     className={`carousel-image ${imageIndex === index ? "is-active" : ""}`}
                 />
