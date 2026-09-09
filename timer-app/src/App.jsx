@@ -4,12 +4,15 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Consigli from "./pages/Consigli";
 import "./App.css";
+import Images from "./components/Images";
+
 
 function App() {
   return (
     <>
       <Navbar />
-      <main className="App" style={{ marginTop: '15vh' }}>
+      <Images />
+      <main className="App" style={{ marginTop: '20vh' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/timer" element={<Timer />} />

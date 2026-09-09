@@ -1,8 +1,8 @@
 export default function Home() {
-  return (
+  return (  <div className="mainDiv">
     <section className="home">
       <h2>Trova il tuo momento di calma</h2>
-
+      <br/>
       <p>
         La meditazione è una pratica che aiuta a dedicare alcuni minuti della
         giornata a noi stessi, concentrandoci sul presente e lasciando da
@@ -11,7 +11,7 @@ export default function Home() {
         essere un'occasione per fermarsi, respirare e ritrovare la propria
         calma.
       </p>
-
+      <br/>
       <p>
         Mindful Timer nasce proprio con questo obiettivo: offrire uno spazio
         semplice e rilassante in cui potersi dedicare alla meditazione. Grazie
@@ -19,7 +19,7 @@ export default function Home() {
         esclusivamente sulla respirazione e sul momento presente, senza dover
         controllare continuamente l'orologio.
       </p>
-
+      <br/>
       <p>
         Meditare con regolarità può aiutare a sviluppare una maggiore
         consapevolezza di ciò che pensiamo e proviamo e può essere un modo
@@ -28,5 +28,6 @@ export default function Home() {
         lascia che il timer accompagni il tuo momento di tranquillità.
       </p>
     </section>
+    </div>
   );
 }

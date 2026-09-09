@@ -1,7 +1,7 @@
 export default function Consigli() {
   return (<section>
     <h2>Consigli per la meditazione</h2>
-
+    <br/>
     <div>
         <h3>Trova un posto tranquillo</h3>
         <p>
