@@ -1,6 +1,6 @@
 # Mindful Timer - Progetto REACT
 
-Live Demo: disponibile dopo la pubblicazione su GitHub Pages
+Live Demo: https://luzzo17.github.io/react_project/
 
 # Descrizione
 
